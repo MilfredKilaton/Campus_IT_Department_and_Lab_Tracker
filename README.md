@@ -1,1 +1,2 @@
-# Campus_IT_Department_and_Lab_Tracker
+CHOSEN OPTION: A. Campus IT Asset & Lab Tracker
+PAIRS: Milfred Kilaton & Johdel Lanojan
