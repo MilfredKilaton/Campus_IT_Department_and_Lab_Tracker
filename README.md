@@ -1,5 +1,7 @@
 CHOSEN OPTION: A. Campus IT Asset & Lab Tracker
+
 PAIRS: Milfred Kilaton & Johdel Lanojan
+
 PROJECT TYPE : Web Application (C# ASP.NET Core + HTML/CSS/JS)
 
 DAY 1 [Oct 26-27]: Initializing project setup using Linux
