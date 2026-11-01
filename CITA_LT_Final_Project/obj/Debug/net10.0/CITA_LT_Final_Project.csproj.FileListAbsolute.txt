@@ -1,0 +1,9 @@
+/home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/obj/Debug/net10.0/CITA_LT_Final_Project.csproj.AssemblyReference.cache
+/home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/obj/Debug/net10.0/rpswa.dswa.cache.json
+/home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/obj/Debug/net10.0/CITA_LT_Final_Project.GeneratedMSBuildEditorConfig.editorconfig
+/home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/obj/Debug/net10.0/CITA_LT_Final_Project.AssemblyInfoInputs.cache
+/home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/obj/Debug/net10.0/CITA_LT_Final_Project.AssemblyInfo.cs
+/home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/obj/Debug/net10.0/CITA_LT_Final_Project.csproj.CoreCompileInputs.cache
+/home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/obj/Debug/net10.0/CITA_LT_Final_Project.MvcApplicationPartsAssemblyInfo.cs
+/home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/obj/Debug/net10.0/CITA_LT_Final_Project.MvcApplicationPartsAssemblyInfo.cache
+/home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/obj/Debug/net10.0/CITA_LT_Final_Project.sourcelink.json

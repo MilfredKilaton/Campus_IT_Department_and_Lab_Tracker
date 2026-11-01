@@ -1,6 +1,6 @@
 using System;
 
-namespace CITA_LT_Final_Project.Models
+namespace CITA.Shared.Models
 {
     public class SoftwareLicense : CampusAsset
     {

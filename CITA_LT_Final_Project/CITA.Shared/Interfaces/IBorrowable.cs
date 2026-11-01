@@ -1,6 +1,6 @@
 using System;
 
-namespace CITA_LT_Final_Project.Interfaces
+namespace CITA.Shared.Interfaces
 {
     public interface IBorrowable
     {

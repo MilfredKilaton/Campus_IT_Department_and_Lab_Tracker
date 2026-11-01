@@ -1,7 +1,7 @@
 using System;
-using CITA_LT_Final_Project.Interfaces;
+using CITA.Shared.Interfaces;
 
-namespace CITA_LT_Final_Project.Models
+namespace CITA.Shared.Models
 {
     public class WorkStation : CampusAsset, IBorrowable, INetworkable
     {

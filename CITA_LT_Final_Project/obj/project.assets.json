@@ -36,6 +36,16 @@
             "related": ".pdb;.xml"
           }
         }
+      },
+      "CITA.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/CITA.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CITA.Shared.dll": {}
+        }
       }
     }
   },
@@ -75,10 +85,16 @@
         "microsoft.openapi.2.12.2.nupkg.sha512",
         "microsoft.openapi.nuspec"
       ]
+    },
+    "CITA.Shared/1.0.0": {
+      "type": "project",
+      "path": "CITA.Shared/CITA.Shared.csproj",
+      "msbuildProject": "CITA.Shared/CITA.Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "CITA.Shared >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 10.0.13"
     ]
   },
@@ -106,7 +122,11 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "/home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/CITA.Shared/CITA.Shared.csproj": {
+              "projectPath": "/home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/CITA.Shared/CITA.Shared.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -6,3 +6,5 @@ DAY 1 [Oct 26-27]: Initializing project setup using Linux
 
 DAY 2 [Oct 30]   : Initializing folders: Interfaces/, Models/ ; Setting up draft files: IBorrowable, INetworkable, Peripheral, NetworkingHardware, WorkStation, CampusAsset.
                  - I have finally finished identifying what properties will be used and required. 
+DAY 3 [Oct 31]   : Extracting Models and Interfaces into CITA.Shared class library.
+                 - I moved the models and interfaces folder inside the CITA.Shared class library to avoid/prevent a merge conflict. And to also clean up the architecture.

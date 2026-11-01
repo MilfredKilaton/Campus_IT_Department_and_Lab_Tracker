@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CITA_LT_Final_Project")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a28cb67a3714c38eb538584e1c335c91d6e7820d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9350789541d010b1d7cc4a69517d08fc6a3d1ff4")]
 [assembly: System.Reflection.AssemblyProductAttribute("CITA_LT_Final_Project")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CITA_LT_Final_Project")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
