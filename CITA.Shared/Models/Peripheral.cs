@@ -8,7 +8,10 @@ namespace CITA.Shared.Models
         public bool IsCheckedOut { get; private set; }
         public string? BorrowerId { get; private set; }
 
-        public Peripheral(string assetTag, decimal price) : base(assetTag, price) { }
+        public Peripheral(string assetTag, decimal price) : base(assetTag, price)
+        {
+            
+        }
 
         public override decimal CalculateDepreciation() => PurchasePrice / 3;
 

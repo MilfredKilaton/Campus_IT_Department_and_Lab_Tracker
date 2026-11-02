@@ -8,9 +8,9 @@ namespace CITA.Shared.Models
         public decimal PurchasePrice {get; private set;}
         public string? Status {get; protected set;}
 
-        protected CampusAsset(string tag, decimal price)
+        protected CampusAsset(string assetTag, decimal price)
         {
-            AssetTag = tag;
+            AssetTag = assetTag;
             PurchasePrice = price;
             Status = "Available";
         }

@@ -15,3 +15,6 @@ DAY 2 [Oct 30]...: Initializing folders: Interfaces/, Models/ ; Setting up draft
 DAY 3 [Oct 31]...: Extracting Models and Interfaces into CITA.Shared class library.
 
  - I moved the models and interfaces folder inside the CITA.Shared class library to avoid/prevent a merge conflict. And to also clean up the architecture.
+
+DAY 4 [Nov 2]...: Completed LINQ logic, AssetService, and API endpoints.
+ - I have finally finished the Controllers, Services, and verified the API endpoints.
