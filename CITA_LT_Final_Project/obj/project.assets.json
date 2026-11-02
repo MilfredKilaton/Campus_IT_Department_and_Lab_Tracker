@@ -88,8 +88,8 @@
     },
     "CITA.Shared/1.0.0": {
       "type": "project",
-      "path": "CITA.Shared/CITA.Shared.csproj",
-      "msbuildProject": "CITA.Shared/CITA.Shared.csproj"
+      "path": "../CITA.Shared/CITA.Shared.csproj",
+      "msbuildProject": "../CITA.Shared/CITA.Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -123,8 +123,8 @@
         "net10.0": {
           "targetAlias": "net10.0",
           "projectReferences": {
-            "/home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/CITA.Shared/CITA.Shared.csproj": {
-              "projectPath": "/home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/CITA.Shared/CITA.Shared.csproj"
+            "/home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA.Shared/CITA.Shared.csproj": {
+              "projectPath": "/home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA.Shared/CITA.Shared.csproj"
             }
           }
         }

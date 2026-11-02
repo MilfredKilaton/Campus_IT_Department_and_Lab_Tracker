@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="CITA.Shared\CITA.Shared.csproj" />
+    <ProjectReference Include="..\CITA.Shared\CITA.Shared.csproj" />
   </ItemGroup>
 
 </Project>
