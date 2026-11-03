@@ -6,15 +6,18 @@ PROJECT TYPE : Web Application (C# ASP.NET Core + HTML/CSS/JS)
 
 DAY 1 [Oct 26-27]: Initializing project setup using Linux
 
- - I saw no Controller folder nor pre-made Weather related files.
+ - We saw no Controller folder nor pre-made Weather related files.
 
 DAY 2 [Oct 30]...: Initializing folders: Interfaces/, Models/ ; Setting up draft files: IBorrowable, INetworkable, Peripheral, NetworkingHardware, WorkStation, CampusAsset.
 
- - I have finally finished identifying what properties will be used and required. 
+ - We have finally finished identifying what properties will be used and required. 
 
 DAY 3 [Oct 31]...: Extracting Models and Interfaces into CITA.Shared class library.
 
- - I moved the models and interfaces folder inside the CITA.Shared class library to avoid/prevent a merge conflict. And to also clean up the architecture.
+ - We moved the models and interfaces folder inside the CITA.Shared class library to avoid/prevent a merge conflict. And to also clean up the architecture.
 
 DAY 4 [Nov 2]...: Completed LINQ logic, AssetService, and API endpoints.
- - I have finally finished the Controllers, Services, and verified the API endpoints.
+ - We have finally finished the Controllers, Services, and verified the API endpoints.
+
+DAY 5 [Nov 3]...: Completed with the UML Diagram. 
+  - We have finished with the blueprint, and meet the requirement.
