@@ -7,5 +7,6 @@
             "color": "foldercolorizer.color_afaf00",
             "badge": "🤯"
         }
-    ]
+    ],
+    "liveServer.settings.port": 5501
 }

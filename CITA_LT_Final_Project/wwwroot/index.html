@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus IT Asset &amp; Lab Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header class="app-header">
+        <h1>Campus IT Asset &amp; Lab Tracker</h1>
+        <p>Manage workstations, peripherals, network hardware, and software licenses.</p>
+    </header>
+
+    <main>
+        <section id="menu" class="menu-grid">
+            <button class="card" data-view="add">
+                <span class="icon">+</span>
+                <h2>Add Asset</h2>
+                <p>Register a new campus asset.</p>
+            </button>
+
+            <button class="card" data-view="list">
+                <span class="icon">=</span>
+                <h2>View All Assets</h2>
+                <p>Browse every asset in the system.</p>
+            </button>
+
+            <button class="card" data-view="checkout">
+                <span class="icon">&gt;</span>
+                <h2>Check Out</h2>
+                <p>Lend a borrowable asset.</p>
+            </button>
+
+            <button class="card" data-view="checkin">
+                <span class="icon">&lt;</span>
+                <h2>Check In</h2>
+                <p>Return a checked-out asset.</p>
+            </button>
+
+            <button class="card" data-view="depreciation">
+                <span class="icon">$</span>
+                <h2>Depreciation</h2>
+                <p>Total calculated depreciation.</p>
+            </button>
+
+            <button class="card" data-view="network">
+                <span class="icon">#</span>
+                <h2>Network Devices</h2>
+                <p>Devices with IP and MAC addresses.</p>
+            </button>
+
+            <button class="card" data-view="checkedout">
+                <span class="icon">!</span>
+                <h2>Checked-Out Items</h2>
+                <p>Currently borrowed assets.</p>
+            </button>
+        </section>
+
+        <section id="panel" class="panel hidden">
+            <div class="panel-header">
+                <h2 id="panel-title">Panel</h2>
+                <button id="back-btn" class="back-btn">Back</button>
+            </div>
+
+            <div id="panel-body"></div>
+
+            <div id="message" class="message hidden"></div>
+        </section>
+    </main>
+</body>
+</html>

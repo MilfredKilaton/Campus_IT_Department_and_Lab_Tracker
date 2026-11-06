@@ -6,9 +6,12 @@ namespace CITA.Shared.Models
     {
         public int RemainingMonths { get; set; }
 
-        public SoftwareLicense(string assetTag, decimal price, int _remainingMonths) : base(assetTag, price) 
+        public SoftwareLicense(string assetTag, decimal price, int remainingMonths) : base(assetTag, price) 
         {
-            RemainingMonths = _remainingMonths;
+            if (remainingMonths < 0)
+                throw new ArgumentException("Remaining months cannot be negative.");
+
+            RemainingMonths = remainingMonths;
         }
 
         public override decimal CalculateDepreciation() => PurchasePrice * (RemainingMonths / 12m);

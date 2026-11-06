@@ -1,7 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using CITA.Shared.Models;
 using CITA.Shared.Interfaces;
-using Microsoft.AspNetCore.SignalR;
 
 namespace CITA_LT_Final_Project.Services
 {

@@ -12,16 +12,18 @@ namespace CITA.Shared.Models
 
         public WorkStation(string assetTag, decimal price) : base(assetTag, price)
         {
-            
         }
 
         public override decimal CalculateDepreciation() => PurchasePrice / 5;
 
-        public void CheckOut(string _borrowerId)
+        public void CheckOut(string borrowedId)
         {
+            if (Status == "InRepair") throw new InvalidOperationException("Cannot checkout. Asset is in repair.");
+            if (IsCheckedOut) throw new InvalidOperationException("Asset is already checked out.");
+            
             IsCheckedOut = true;
-            BorrowerId = _borrowerId;
-            Status = "CheckedOut"; 
+            BorrowerId = borrowedId;
+            Status = "CheckedOut";
         }
 
         public void CheckIn()
