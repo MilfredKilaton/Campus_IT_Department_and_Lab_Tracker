@@ -6,7 +6,7 @@ PROJECT TYPE : Web Application (C# ASP.NET Core + HTML/CSS/JS)
 
 DAY 1 [Oct 26-27]: Initializing project setup using Linux
 
- - We saw no Controller folder nor pre-made Weather related files.
+ - No Controller folder nor pre-made Weather related files was seen.
 
 DAY 2 [Oct 30]...: Initializing folders: Interfaces/, Models/ ; Setting up draft files: IBorrowable, INetworkable, Peripheral, NetworkingHardware, WorkStation, CampusAsset.
 
@@ -21,3 +21,6 @@ DAY 4 [Nov 2]...: Completed LINQ logic, AssetService, and API endpoints.
 
 DAY 5 [Nov 3]...: Completed with the UML Diagram. 
   - We have finished with the blueprint, and meet the requirement.
+
+DAY 6 [Nov 6]...: Initializing UI design with HTML and CSS.
+  - We have made the skeleton and the headers of our website and used only the HTML and CSS.
