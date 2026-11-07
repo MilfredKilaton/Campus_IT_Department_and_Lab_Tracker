@@ -33,11 +33,11 @@
 /home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/obj/Debug/net10.0/rjsmrazor.dswa.cache.json
 /home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/obj/Debug/net10.0/rjsmcshtml.dswa.cache.json
 /home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/obj/Debug/net10.0/scopedcss/bundle/CITA_LT_Final_Project.styles.css
-/home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/obj/Debug/net10.0/compressed/0o9iq6ow9d-{0}-hfa7vfhdqn-hfa7vfhdqn.gz
-/home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/obj/Debug/net10.0/compressed/5jg60tpkm5-{0}-8wm1g6z17u-8wm1g6z17u.gz
-/home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/obj/Debug/net10.0/compressed/v5uow8yfjh-{0}-l1c7boouqk-l1c7boouqk.gz
 /home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/obj/Debug/net10.0/staticwebassets.build.json
 /home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/obj/Debug/net10.0/staticwebassets.build.json.cache
 /home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/obj/Debug/net10.0/staticwebassets.development.json
 /home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/obj/Debug/net10.0/staticwebassets.build.endpoints.json
 /home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/obj/Debug/net10.0/swae.build.ex.cache
+/home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/obj/Debug/net10.0/compressed/0o9iq6ow9d-{0}-5ipweew5fc-5ipweew5fc.gz
+/home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/obj/Debug/net10.0/compressed/5jg60tpkm5-{0}-pwqivgbbl7-pwqivgbbl7.gz
+/home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA_LT_Final_Project/obj/Debug/net10.0/compressed/v5uow8yfjh-{0}-gm5szw6oeh-gm5szw6oeh.gz
