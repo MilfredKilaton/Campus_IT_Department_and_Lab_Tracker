@@ -24,3 +24,6 @@ DAY 6 [Nov 6]...: Initializing UI design with HTML and CSS.
 
 DAY 7 [Nov 7]...: Redesigning button layout by making a sidebar.
   - Changes in CITA_LT_FINAL_PROJECT/wwwroot/style.css
+
+DAY 8 [Nov 8]...: Duplicate Asset Tags problem.
+  - A light changes in CITA_LT_FINAL_PROJECT/Services/AssetService.css to throw exception and for the AssetController.cs to catch.

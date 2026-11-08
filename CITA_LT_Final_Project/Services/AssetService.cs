@@ -10,7 +10,14 @@ namespace CITA_LT_Final_Project.Services
     {
         private readonly List<CampusAsset> _assets = new();
 
-        public void AddAsset(CampusAsset asset) => _assets.Add(asset);
+        public void AddAsset(CampusAsset asset) 
+        {
+            if (_assets.Any(a => a.AssetTag == asset.AssetTag))
+            {
+                throw new InvalidOperationException($"An asset with the tag '{asset.AssetTag}' already exists.");
+            }
+            _assets.Add(asset);
+        }
         public List<CampusAsset> GetAllAssets() => _assets;
 
         public decimal GetTotalDepreciation()
