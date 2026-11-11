@@ -19,18 +19,18 @@ body {
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
     background: var(--bg);
     color: var(--text);
-    min-height: 100vh;
-    
-    padding: 2rem 1rem;
+    height: 100vh; /* Keeps the layout locked to the screen height */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Stops the whole page from scrolling */
 }
 
-/* --- NEW: Styling the header --- */
 .app-header {
-    max-width: 1200px;
-    margin: 0 auto 2rem;
     text-align: center;
+    padding: 1.5rem 1rem;
     border-bottom: 1px solid var(--border);
-    padding-bottom: 1.5rem;
+    background: var(--bg);
+    flex-shrink: 0; 
 }
 
 .app-header h1 {
@@ -46,21 +46,31 @@ body {
 
 main {
     max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 280px 1fr;
+    grid-template-columns: 280px 1fr; /* Left 280px, Right fills the rest */
     gap: 2rem;
-    align-items: start;
+    padding: 2rem 1rem;
+    flex: 1; 
+    overflow: hidden; 
 }
 
-.menu-grid {
+/* --- LEFT SIDEBAR (MENU) --- */
+#menu {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    overflow-y: auto; /* Creates an independent scrollbar for the buttons */
+    padding-right: 0.5rem; 
 }
 
+/* Custom scrollbar for the sidebar */
+#menu::-webkit-scrollbar { width: 8px; }
+#menu::-webkit-scrollbar-track { background: transparent; }
+#menu::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
 .card {
-    /* NEW: Added background, borders, and transitions */
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 12px;
@@ -72,16 +82,15 @@ main {
     font-size: 1rem;
     transition: transform 0.15s, background 0.15s, border-color 0.15s;
     width: 100%;
+    flex-shrink: 0; /* Prevents buttons from shrinking */
 }
 
-/* --- NEW: Hover effect for the cards --- */
 .card:hover {
     background: var(--surface-hover);
     border-color: var(--accent);
     transform: translateY(-2px);
 }
 
-/* --- NEW: Styling the icons inside the cards --- */
 .card .icon {
     font-size: 1.5rem;
     font-weight: 700;
@@ -91,7 +100,6 @@ main {
 }
 
 .card h2 {
-    /* NEW: Added font size and margins */
     font-size: 1rem;
     margin-bottom: 0.25rem;
 }
@@ -101,13 +109,14 @@ main {
     color: var(--text-dim);
 }
 
-.panel {
+/* --- RIGHT PANEL (INFORMATION) --- */
+#panel {
     margin: 0;
-    min-height: 500px;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 1.5rem;
+    overflow-y: auto; /* Creates an independent scrollbar for the panel */
 }
 
 .panel-header {
@@ -117,34 +126,131 @@ main {
     margin-bottom: 1.25rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--surface);
+    z-index: 10;
 }
 
 .panel-header h2 { 
     font-size: 1.3rem; 
 }
 
-.back-btn {
-    background: transparent;
+/* --- FORM & TABLE STYLES --- */
+.form-group { margin-bottom: 1rem; }
+.form-group label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-bottom: 0.35rem;
+}
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    background: var(--bg);
     border: 1px solid var(--border);
+    border-radius: 8px;
     color: var(--text);
-    padding: 0.4rem 0.9rem;
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.btn-primary {
+    background: var(--accent);
+    color: #0f172a;
+    border: none;
+    padding: 0.65rem 1.5rem;
     border-radius: 8px;
     cursor: pointer;
+    font-weight: 600;
     font-family: inherit;
+    font-size: 0.95rem;
     transition: background 0.15s;
 }
+.btn-primary:hover { background: var(--accent-hover); }
 
-/* --- NEW: Hover effect for the Back button --- */
-.back-btn:hover { 
-    background: var(--surface-hover); 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+th, td {
+    text-align: left;
+    padding: 0.65rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+}
+th {
+    color: var(--text-dim);
+    font-weight: 500;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+tr:hover td { background: var(--surface-hover); }
+
+.badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+.badge.available { background: #14532d; color: #86efac; }
+.badge.checkedout { background: #7c2d12; color: #fdba74; }
+.badge.inrepair  { background: #7f1d1d; color: #fca5a5; }
+
+.big-number {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+.big-number .label {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+.big-number .value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent);
 }
 
-.hidden { 
-    display: none !important; 
+.message {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+.message.success { background: #14532d; color: #86efac; }
+.message.error   { background: #7f1d1d; color: #fca5a5; }
+
+.empty {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-dim);
+    font-style: italic;
 }
 
+/* --- RESPONSIVE DESIGN (Mobile) --- */
 @media (max-width: 720px) {
+    body {
+        height: auto;
+        overflow: auto;
+    }
     main {
         grid-template-columns: 1fr;
+        overflow: visible;
+    }
+    #menu, #panel {
+        overflow-y: visible;
     }
 }

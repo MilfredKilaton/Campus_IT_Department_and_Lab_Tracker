@@ -3,74 +3,184 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Campus IT Asset &amp; Lab Tracker</title>
+    <title>Campus IT Asset & Lab Tracker</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <header>
-        <h1>Campus IT Asset &amp; Lab Tracker</h1>
+    <header class="app-header">
+        <h1>Campus IT Asset & Lab Tracker</h1>
         <p>Manage workstations, peripherals, network hardware, and software licenses.</p>
     </header>
 
     <main>
-        <!-- Left side: Sidebar Menu -->
         <section id="menu">
             <button class="card" data-view="add">
-                <span>+</span>
+                <span class="icon">+</span>
                 <h2>Add Asset</h2>
                 <p>Register a new campus asset.</p>
             </button>
 
             <button class="card" data-view="list">
-                <span>=</span>
+                <span class="icon">=</span>
                 <h2>View All Assets</h2>
                 <p>Browse every asset in the system.</p>
             </button>
 
             <button class="card" data-view="checkout">
-                <span>&gt;</span>
+                <span class="icon">&gt;</span>
                 <h2>Check Out</h2>
                 <p>Lend a borrowable asset.</p>
             </button>
 
             <button class="card" data-view="checkin">
-                <span>&lt;</span>
+                <span class="icon">&lt;</span>
                 <h2>Check In</h2>
                 <p>Return a checked-out asset.</p>
             </button>
 
             <button class="card" data-view="depreciation">
-                <span>$</span>
+                <span class="icon">$</span>
                 <h2>Depreciation</h2>
                 <p>Total calculated depreciation.</p>
             </button>
 
             <button class="card" data-view="network">
-                <span>#</span>
+                <span class="icon">#</span>
                 <h2>Network Devices</h2>
                 <p>Devices with IP and MAC addresses.</p>
             </button>
 
             <button class="card" data-view="checkedout">
-                <span>!</span>
+                <span class="icon">!</span>
                 <h2>Checked-Out Items</h2>
                 <p>Currently borrowed assets.</p>
             </button>
         </section>
 
-        <!-- Right side: Panel -->
-        <section id="panel" class="hidden">
-            <div>
-                <h2 id="panel-title">Panel</h2>
-                <button id="back-btn">Back</button>
+        <section id="panel">
+            <div class="panel-header">
+                <h2 id="panel-title">Select an Option</h2>
             </div>
-
+            
             <div id="panel-body">
-                
-            </div>
+                <div id="view-default" class="empty view-panel">Choose an action from the menu on the left.</div>
 
-            <div id="message" class="hidden"></div>
+                <section id="view-add" class="view-panel" hidden>
+                    <form>
+                        <div class="form-group">
+                            <label>Asset Type</label>
+                            <select>
+                                <option>WorkStation</option>
+                                <option>NetworkingHardware</option>
+                                <option>Peripheral</option>
+                                <option>SoftwareLicense</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Asset Tag</label>
+                                <input placeholder="e.g. WS-001" />
+                            </div>
+                            <div class="form-group">
+                                <label>Purchase Price</label>
+                                <input type="number" placeholder="1500.00" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>IP Address</label>
+                                <input placeholder="192.168.1.10" />
+                            </div>
+                            <div class="form-group">
+                                <label>MAC Address</label>
+                                <input placeholder="AA:BB:CC:DD:EE:FF" />
+                            </div>
+                        </div>
+                        <button type="button" class="btn-primary">Add Asset</button>
+                    </form>
+                </section>
+
+                <section id="view-list" class="view-panel" hidden>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Asset Tag</th>
+                                <th>Type</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+
+                <section id="view-checkout" class="view-panel" hidden>
+                    <form>
+                        <div class="form-group">
+                            <label>Select Available Asset</label>
+                            <select>
+                                <option value="" disabled selected>-- Select an asset to borrow --</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Borrower ID</label>
+                            <input placeholder="e.g. STU-2024-05" />
+                        </div>
+                        <button type="button" class="btn-primary">Check Out</button>
+                    </form>
+                </section>
+
+                <section id="view-checkin" class="view-panel" hidden>
+                    <form>
+                        <div class="form-group">
+                            <label>Select Checked-Out Asset</label>
+                            <select>
+                                <option value="" disabled selected>-- Select an asset to return --</option>
+                            </select>
+                        </div>
+                        <button type="button" class="btn-primary">Check In</button>
+                    </form>
+                </section>
+
+                <!-- 5. Depreciation -->
+                <section id="view-depreciation" class="view-panel" hidden>
+                    <div class="big-number">
+                        <div class="label">Total Depreciation Across All Assets</div>
+                        <div class="value">0.00</div>
+                    </div>
+                </section>
+
+                <!-- 6. Network Devices -->
+                <section id="view-network" class="view-panel" hidden>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Asset Tag</th>
+                                <th>IP Address</th>
+                                <th>MAC Address</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+
+                <!-- 7. Checked-Out Items -->
+                <section id="view-checkedout" class="view-panel" hidden>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Asset Tag</th>
+                                <th>Borrower ID</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </section>
+            </div>
         </section>
     </main>
+
+    <script src="app.js"></script>
 </body>
 </html>
