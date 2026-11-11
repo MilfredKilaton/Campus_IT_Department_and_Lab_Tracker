@@ -27,3 +27,8 @@ DAY 7 [Nov 7]...: Redesigning button layout by making a sidebar.
 
 DAY 8 [Nov 8]...: Duplicate Asset Tags problem.
   - A light changes in CITA_LT_FINAL_PROJECT/Services/AssetService.css to throw exception and for the AssetController.cs to catch.
+
+DAY 9 [Nov 11]..: Finishing touch for the GUI.
+  - Added scrollable feature for left menu side bar.
+  - Added panels for each desginated buttons.
+  - Interactable buttons.

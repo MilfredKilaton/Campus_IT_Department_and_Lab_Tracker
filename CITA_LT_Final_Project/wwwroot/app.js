@@ -1,7 +1,6 @@
 const panelTitle = document.getElementById("panel-title");
 const allViews = document.querySelectorAll(".view-panel");
 
-// Function to switch the view
 function switchView(title, targetViewId) {
     panelTitle.textContent = title;
 
