@@ -1,4 +1,5 @@
 using System;
+using System.Text.Json.Serialization;
 
 namespace CITA.Shared.Models
 {
@@ -6,7 +7,10 @@ namespace CITA.Shared.Models
     {
         public int RemainingMonths { get; set; }
 
-        public SoftwareLicense(string assetTag, decimal price, int remainingMonths) : base(assetTag, price) 
+        [JsonConstructor]
+        public SoftwareLicense() { }
+        
+        public SoftwareLicense(string assetTag, string assetName,decimal price, int remainingMonths) : base(assetTag, assetName, price) 
         {
             if (remainingMonths < 0)
                 throw new ArgumentException("Remaining months cannot be negative.");

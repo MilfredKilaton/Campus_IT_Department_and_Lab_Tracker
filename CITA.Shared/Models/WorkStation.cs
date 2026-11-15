@@ -1,4 +1,5 @@
 using System;
+using System.Text.Json.Serialization;
 using CITA.Shared.Interfaces;
 
 namespace CITA.Shared.Models
@@ -10,7 +11,10 @@ namespace CITA.Shared.Models
         public string IpAddress { get; set; } = string.Empty;
         public string MacAddress { get; set; } = string.Empty;
 
-        public WorkStation(string assetTag, decimal price) : base(assetTag, price)
+        [JsonConstructor]
+        public WorkStation() { }
+
+        public WorkStation(string assetTag, string assetName, decimal purchasePrice) : base(assetTag, assetName, purchasePrice)
         {
         }
 

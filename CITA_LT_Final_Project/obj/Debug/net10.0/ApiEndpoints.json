@@ -1,0 +1,117 @@
+[
+  {
+    "ContainingType": "CITA_LT_Final_Project.Controllers.AssetController",
+    "Method": "GetAll",
+    "RelativePath": "api/Asset",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CITA_LT_Final_Project.Controllers.AssetController",
+    "Method": "Add",
+    "RelativePath": "api/Asset",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "jsonPayload",
+        "Type": "System.Text.Json.JsonElement",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CITA_LT_Final_Project.Controllers.AssetController",
+    "Method": "CheckIn",
+    "RelativePath": "api/Asset/checkin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tag",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CITA_LT_Final_Project.Controllers.AssetController",
+    "Method": "CheckOut",
+    "RelativePath": "api/Asset/checkout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tag",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "borrowerId",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CITA_LT_Final_Project.Controllers.AssetController",
+    "Method": "Delete",
+    "RelativePath": "api/Asset/delete",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tag",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CITA_LT_Final_Project.Controllers.AssetController",
+    "Method": "GetDepreciation",
+    "RelativePath": "api/Asset/depreciation",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CITA_LT_Final_Project.Controllers.AssetController",
+    "Method": "GetNetwork",
+    "RelativePath": "api/Asset/network",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CITA_LT_Final_Project.Controllers.AssetController",
+    "Method": "Update",
+    "RelativePath": "api/Asset/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "jsonPayload",
+        "Type": "System.Text.Json.JsonElement",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

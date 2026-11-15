@@ -27,29 +27,30 @@ public class AssetController : ControllerBase
         {
             string type = jsonPayload.GetProperty("type").GetString() ?? "";
             string tag = jsonPayload.GetProperty("assetTag").GetString() ?? "";
+            string name = jsonPayload.GetProperty("assetName").GetString() ?? "";
             decimal price = jsonPayload.GetProperty("purchasePrice").GetDecimal();
 
             CampusAsset newAsset;
             switch (type)
             {
                 case "WorkStation":
-                    var ws = new WorkStation(tag, price);
-                    if (jsonPayload.TryGetProperty("ipAddress", out var wsIp)) ws.IpAddress = wsIp.GetString() ?? "";
-                    if (jsonPayload.TryGetProperty("macAddress", out var wsMac)) ws.MacAddress = wsMac.GetString() ?? "";
-                    newAsset = ws;
+                    var workstation = new WorkStation(tag, name, price);
+                    if (jsonPayload.TryGetProperty("ipAddress", out var workstationIp)) workstation.IpAddress = workstationIp.GetString() ?? "";
+                    if (jsonPayload.TryGetProperty("macAddress", out var workstationMac)) workstation.MacAddress = workstationMac.GetString() ?? "";
+                    newAsset = workstation;
                     break;
                 case "NetworkingHardware":
-                    var nh = new NetworkingHardware(tag, price);
-                    if (jsonPayload.TryGetProperty("ipAddress", out var nhIp)) nh.IpAddress = nhIp.GetString() ?? "";
-                    if (jsonPayload.TryGetProperty("macAddress", out var nhMac)) nh.MacAddress = nhMac.GetString() ?? "";
-                    newAsset = nh;
+                    var networkingHardware = new NetworkingHardware(tag, name, price);
+                    if (jsonPayload.TryGetProperty("ipAddress", out var networkingIp)) networkingHardware.IpAddress = networkingIp.GetString() ?? "";
+                    if (jsonPayload.TryGetProperty("macAddress", out var networkingMac)) networkingHardware.MacAddress = networkingMac.GetString() ?? "";
+                    newAsset = networkingHardware;
                     break;
                 case "Peripheral":
-                    newAsset = new Peripheral(tag, price);
+                    newAsset = new Peripheral(tag, name, price);
                     break;
                 case "SoftwareLicense":
-                    int months = jsonPayload.TryGetProperty("remainingMonths", out var m) ? m.GetInt32() : 12;
-                    newAsset = new SoftwareLicense(tag, price, months);
+                    int months = jsonPayload.TryGetProperty("remainingMonths", out var remainingMonths) ? remainingMonths.GetInt32() : 12;
+                    newAsset = new SoftwareLicense(tag, name, price, months);
                     break;
                 default:
                     return BadRequest($"Unknown asset type: {type}");
@@ -64,46 +65,64 @@ public class AssetController : ControllerBase
         }
     }
 
-    [HttpPost("checkout")]
-    public IActionResult CheckOut([FromQuery] string tag, [FromQuery] string borrowerId)
+    [HttpPut("update")]
+    public IActionResult Update([FromBody] JsonElement jsonPayload)
     {
-        var asset = _service.GetAllAssets().FirstOrDefault(a => a.AssetTag == tag) as IBorrowable;
-        if (asset == null) return NotFound("Asset not found or not borrowable.");
-        
         try
         {
-            asset.CheckOut(borrowerId);
-            return Ok("Checked out successfully.");
+            string tag = jsonPayload.GetProperty("assetTag").GetString() ?? "";
+            string name = jsonPayload.GetProperty("assetName").GetString() ?? "";
+            decimal price = jsonPayload.GetProperty("purchasePrice").GetDecimal();
+            string status = jsonPayload.GetProperty("status").GetString() ?? "Available";
+
+            _service.UpdateAsset(tag, name, price, status);
+            return Ok("Asset updated successfully.");
         }
         catch (Exception ex)
         {
             return BadRequest(ex.Message);
         }
+    }
+
+    [HttpDelete("delete")]
+    public IActionResult Delete([FromQuery] string tag)
+    {
+        try
+        {
+            _service.DeleteAsset(tag);
+            return Ok("Asset deleted successfully.");
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
+    [HttpPost("checkout")]
+    public IActionResult CheckOut([FromQuery] string tag, [FromQuery] string borrowerId)
+    {
+        var asset = _service.GetAllAssets().FirstOrDefault(existingAsset => existingAsset.AssetTag == tag) as IBorrowable;
+        if (asset == null) return NotFound("Asset not found or not borrowable.");
+        try { asset.CheckOut(borrowerId); return Ok("Checked out successfully."); }
+        catch (Exception ex) { return BadRequest(ex.Message); }
     }
 
     [HttpPost("checkin")]
     public IActionResult CheckIn([FromQuery] string tag)
     {
-        var asset = _service.GetAllAssets().FirstOrDefault(a => a.AssetTag == tag) as IBorrowable;
+        var asset = _service.GetAllAssets().FirstOrDefault(existingAsset => existingAsset.AssetTag == tag) as IBorrowable;
         if (asset == null) return NotFound("Asset not found or not borrowable.");
-
-        try
-        {
-            asset.CheckIn();
-            return Ok("Checked in successfully.");
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(ex.Message);
-        }
+        try { asset.CheckIn(); return Ok("Checked in successfully."); }
+        catch (Exception ex) { return BadRequest(ex.Message); }
     }
 
     [HttpGet("depreciation")]
     public IActionResult GetDepreciation() => Ok(_service.GetTotalDepreciation());
 
-    [HttpGet("checkedout")]
-    public IActionResult GetCheckedOut() => Ok(_service.GetCheckedOutItems());
-
     [HttpGet("network")]
-    public IActionResult GetNetwork() => Ok(_service.GetNetworkDevices());
+    public IActionResult GetNetwork()
+    {
+        var devices = _service.GetNetworkDevices();
+        return Ok(devices); 
+    }
 }

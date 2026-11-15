@@ -10,3 +10,16 @@
 /home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA.Shared/obj/Debug/net10.0/refint/CITA.Shared.dll
 /home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA.Shared/obj/Debug/net10.0/CITA.Shared.pdb
 /home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/CITA.Shared/obj/Debug/net10.0/ref/CITA.Shared.dll
+C:\Users\Johdel Lanojan\OneDrive\Documents\github\Campus_IT_Department_and_Lab_Tracker\CITA.Shared\bin\Debug\net10.0\CITA.Shared.deps.json
+C:\Users\Johdel Lanojan\OneDrive\Documents\github\Campus_IT_Department_and_Lab_Tracker\CITA.Shared\bin\Debug\net10.0\CITA.Shared.dll
+C:\Users\Johdel Lanojan\OneDrive\Documents\github\Campus_IT_Department_and_Lab_Tracker\CITA.Shared\bin\Debug\net10.0\CITA.Shared.pdb
+C:\Users\Johdel Lanojan\OneDrive\Documents\github\Campus_IT_Department_and_Lab_Tracker\CITA.Shared\obj\Debug\net10.0\CITA.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Johdel Lanojan\OneDrive\Documents\github\Campus_IT_Department_and_Lab_Tracker\CITA.Shared\obj\Debug\net10.0\CITA.Shared.AssemblyInfoInputs.cache
+C:\Users\Johdel Lanojan\OneDrive\Documents\github\Campus_IT_Department_and_Lab_Tracker\CITA.Shared\obj\Debug\net10.0\CITA.Shared.AssemblyInfo.cs
+C:\Users\Johdel Lanojan\OneDrive\Documents\github\Campus_IT_Department_and_Lab_Tracker\CITA.Shared\obj\Debug\net10.0\CITA.Shared.csproj.CoreCompileInputs.cache
+C:\Users\Johdel Lanojan\OneDrive\Documents\github\Campus_IT_Department_and_Lab_Tracker\CITA.Shared\obj\Debug\net10.0\CITA.Shared.sourcelink.json
+C:\Users\Johdel Lanojan\OneDrive\Documents\github\Campus_IT_Department_and_Lab_Tracker\CITA.Shared\obj\Debug\net10.0\CITA.Shared.dll
+C:\Users\Johdel Lanojan\OneDrive\Documents\github\Campus_IT_Department_and_Lab_Tracker\CITA.Shared\obj\Debug\net10.0\refint\CITA.Shared.dll
+C:\Users\Johdel Lanojan\OneDrive\Documents\github\Campus_IT_Department_and_Lab_Tracker\CITA.Shared\obj\Debug\net10.0\CITA.Shared.pdb
+C:\Users\Johdel Lanojan\OneDrive\Documents\github\Campus_IT_Department_and_Lab_Tracker\CITA.Shared\obj\Debug\net10.0\ref\CITA.Shared.dll
+C:\Users\Johdel Lanojan\OneDrive\Documents\github\Campus_IT_Department_and_Lab_Tracker\CITA.Shared\obj\Debug\net10.0\CITA.Sha.0C1F7DD0.Up2Date

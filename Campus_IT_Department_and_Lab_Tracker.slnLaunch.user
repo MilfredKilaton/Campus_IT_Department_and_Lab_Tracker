@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "New Profile",
+    "Projects": [
+      {
+        "Path": "CITA.Shared\\CITA.Shared.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

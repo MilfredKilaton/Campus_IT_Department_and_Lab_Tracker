@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/Solution Items/" />
+  <Project Path="CITA.Shared/CITA.Shared.csproj" />
+  <Project Path="CITA_LT_Final_Project/CITA_LT_Final_Project.csproj" />
+</Solution>

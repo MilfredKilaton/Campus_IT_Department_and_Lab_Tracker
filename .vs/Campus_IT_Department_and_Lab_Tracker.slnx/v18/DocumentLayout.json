@@ -1,0 +1,51 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{84ACD077-83E0-098A-8A5E-27596F7BAAF7}|CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj|c:\\users\\johdel lanojan\\onedrive\\documents\\github\\campus_it_department_and_lab_tracker\\cita_lt_final_project\\cita_lt_final_project.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{84ACD077-83E0-098A-8A5E-27596F7BAAF7}|CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj|solutionrelative:cita_lt_final_project\\cita_lt_final_project.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CITA_LT_Final_Project",
+              "DocumentMoniker": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj",
+              "RelativeDocumentMoniker": "CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj",
+              "ToolTip": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj",
+              "RelativeToolTip": "CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-11-15T08:24:43.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1470,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

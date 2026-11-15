@@ -1,10 +1,6 @@
 using CITA_LT_Final_Project.Services;
 
-var builder = WebApplication.CreateBuilder(new WebApplicationOptions
-{
-    Args = args,
-    WebRootPath = "" 
-});
+var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -21,8 +17,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseDefaultFiles();   // serves index.html as default
-app.UseStaticFiles();    // serves wwwroot content
+app.UseDefaultFiles();
+app.UseStaticFiles();
 
 app.UseAuthorization();
 app.MapControllers();

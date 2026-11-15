@@ -1,4 +1,5 @@
 using System;
+using System.Text.Json.Serialization;
 using CITA.Shared.Interfaces;
 
 namespace CITA.Shared.Models
@@ -8,8 +9,12 @@ namespace CITA.Shared.Models
         public bool IsCheckedOut { get; private set; }
         public string? BorrowerId { get; private set; }
 
-        public Peripheral(string assetTag, decimal price) : base(assetTag, price)
+        [JsonConstructor]
+        public Peripheral() { }
+
+        public Peripheral(string assetTag, string assetName, decimal price) : base(assetTag, assetName ,price)
         {
+
         }
 
         public override decimal CalculateDepreciation() => PurchasePrice / 3;

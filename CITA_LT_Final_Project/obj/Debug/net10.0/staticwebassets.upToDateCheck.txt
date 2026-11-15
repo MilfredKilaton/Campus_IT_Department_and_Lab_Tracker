@@ -1,0 +1,6 @@
+C:\Users\Johdel Lanojan\OneDrive\Documents\github\Campus_IT_Department_and_Lab_Tracker\CITA_LT_Final_Project\wwwroot\app.js
+C:\Users\Johdel Lanojan\OneDrive\Documents\github\Campus_IT_Department_and_Lab_Tracker\CITA_LT_Final_Project\wwwroot\index.html
+C:\Users\Johdel Lanojan\OneDrive\Documents\github\Campus_IT_Department_and_Lab_Tracker\CITA_LT_Final_Project\wwwroot\style.css
+wwwroot\app.js
+wwwroot\index.html
+wwwroot\style.css
