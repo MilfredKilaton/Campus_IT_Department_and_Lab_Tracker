@@ -65,7 +65,7 @@ public class AssetController : ControllerBase
         }
     }
 
-    [HttpPut("update")]
+    [HttpPut("update")] 
     public IActionResult Update([FromBody] JsonElement jsonPayload)
     {
         try
@@ -104,7 +104,7 @@ public class AssetController : ControllerBase
         var asset = _service.GetAllAssets().FirstOrDefault(existingAsset => existingAsset.AssetTag == tag) as IBorrowable;
         if (asset == null) return NotFound("Asset not found or not borrowable.");
         try { asset.CheckOut(borrowerId); return Ok("Checked out successfully."); }
-        catch (Exception ex) { return BadRequest(ex.Message); }
+        catch (InvalidOperationException ex) { return BadRequest(ex.Message); }
     }
 
     [HttpPost("checkin")]

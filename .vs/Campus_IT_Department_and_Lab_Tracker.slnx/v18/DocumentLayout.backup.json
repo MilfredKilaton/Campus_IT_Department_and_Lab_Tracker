@@ -1,7 +1,64 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{84ACD077-83E0-098A-8A5E-27596F7BAAF7}|CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj|c:\\users\\johdel lanojan\\onedrive\\documents\\github\\campus_it_department_and_lab_tracker\\cita_lt_final_project\\wwwroot\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{84ACD077-83E0-098A-8A5E-27596F7BAAF7}|CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj|solutionrelative:cita_lt_final_project\\wwwroot\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84ACD077-83E0-098A-8A5E-27596F7BAAF7}|CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj|c:\\users\\johdel lanojan\\onedrive\\documents\\github\\campus_it_department_and_lab_tracker\\cita_lt_final_project\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{84ACD077-83E0-098A-8A5E-27596F7BAAF7}|CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj|solutionrelative:cita_lt_final_project\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84ACD077-83E0-098A-8A5E-27596F7BAAF7}|CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj|c:\\users\\johdel lanojan\\onedrive\\documents\\github\\campus_it_department_and_lab_tracker\\cita_lt_final_project\\wwwroot\\app.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{84ACD077-83E0-098A-8A5E-27596F7BAAF7}|CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj|solutionrelative:cita_lt_final_project\\wwwroot\\app.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84ACD077-83E0-098A-8A5E-27596F7BAAF7}|CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj|c:\\users\\johdel lanojan\\onedrive\\documents\\github\\campus_it_department_and_lab_tracker\\cita_lt_final_project\\controllers\\assetcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84ACD077-83E0-098A-8A5E-27596F7BAAF7}|CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj|solutionrelative:cita_lt_final_project\\controllers\\assetcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84ACD077-83E0-098A-8A5E-27596F7BAAF7}|CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj|c:\\users\\johdel lanojan\\onedrive\\documents\\github\\campus_it_department_and_lab_tracker\\cita_lt_final_project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84ACD077-83E0-098A-8A5E-27596F7BAAF7}|CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj|solutionrelative:cita_lt_final_project\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F5EA5C6-0030-CEF4-CB67-108D1D771200}|CITA.Shared\\CITA.Shared.csproj|c:\\users\\johdel lanojan\\onedrive\\documents\\github\\campus_it_department_and_lab_tracker\\cita.shared\\models\\workstation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F5EA5C6-0030-CEF4-CB67-108D1D771200}|CITA.Shared\\CITA.Shared.csproj|solutionrelative:cita.shared\\models\\workstation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F5EA5C6-0030-CEF4-CB67-108D1D771200}|CITA.Shared\\CITA.Shared.csproj|c:\\users\\johdel lanojan\\onedrive\\documents\\github\\campus_it_department_and_lab_tracker\\cita.shared\\interfaces\\inetworkable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F5EA5C6-0030-CEF4-CB67-108D1D771200}|CITA.Shared\\CITA.Shared.csproj|solutionrelative:cita.shared\\interfaces\\inetworkable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F5EA5C6-0030-CEF4-CB67-108D1D771200}|CITA.Shared\\CITA.Shared.csproj|c:\\users\\johdel lanojan\\onedrive\\documents\\github\\campus_it_department_and_lab_tracker\\cita.shared\\models\\campusasset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F5EA5C6-0030-CEF4-CB67-108D1D771200}|CITA.Shared\\CITA.Shared.csproj|solutionrelative:cita.shared\\models\\campusasset.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84ACD077-83E0-098A-8A5E-27596F7BAAF7}|CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj|c:\\users\\johdel lanojan\\onedrive\\documents\\github\\campus_it_department_and_lab_tracker\\cita_lt_final_project\\cita_lt_final_project.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{84ACD077-83E0-098A-8A5E-27596F7BAAF7}|CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj|solutionrelative:cita_lt_final_project\\cita_lt_final_project.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F5EA5C6-0030-CEF4-CB67-108D1D771200}|CITA.Shared\\CITA.Shared.csproj|c:\\users\\johdel lanojan\\onedrive\\documents\\github\\campus_it_department_and_lab_tracker\\cita.shared\\interfaces\\iborrowable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F5EA5C6-0030-CEF4-CB67-108D1D771200}|CITA.Shared\\CITA.Shared.csproj|solutionrelative:cita.shared\\interfaces\\iborrowable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84ACD077-83E0-098A-8A5E-27596F7BAAF7}|CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj|c:\\users\\johdel lanojan\\onedrive\\documents\\github\\campus_it_department_and_lab_tracker\\cita_lt_final_project\\services\\assetservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84ACD077-83E0-098A-8A5E-27596F7BAAF7}|CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj|solutionrelative:cita_lt_final_project\\services\\assetservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84ACD077-83E0-098A-8A5E-27596F7BAAF7}|CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj|c:\\users\\johdel lanojan\\onedrive\\documents\\github\\campus_it_department_and_lab_tracker\\cita_lt_final_project\\cita_lt_final_project.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{84ACD077-83E0-098A-8A5E-27596F7BAAF7}|CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj|solutionrelative:cita_lt_final_project\\cita_lt_final_project.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F5EA5C6-0030-CEF4-CB67-108D1D771200}|CITA.Shared\\CITA.Shared.csproj|c:\\users\\johdel lanojan\\onedrive\\documents\\github\\campus_it_department_and_lab_tracker\\cita.shared\\models\\softwarelicense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F5EA5C6-0030-CEF4-CB67-108D1D771200}|CITA.Shared\\CITA.Shared.csproj|solutionrelative:cita.shared\\models\\softwarelicense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84ACD077-83E0-098A-8A5E-27596F7BAAF7}|CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj|c:\\users\\johdel lanojan\\onedrive\\documents\\github\\campus_it_department_and_lab_tracker\\cita_lt_final_project\\cita_lt_final_project.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{84ACD077-83E0-098A-8A5E-27596F7BAAF7}|CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj|solutionrelative:cita_lt_final_project\\cita_lt_final_project.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +66,192 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "app.js",
+              "DocumentMoniker": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA_LT_Final_Project\\wwwroot\\app.js",
+              "RelativeDocumentMoniker": "CITA_LT_Final_Project\\wwwroot\\app.js",
+              "ToolTip": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA_LT_Final_Project\\wwwroot\\app.js",
+              "RelativeToolTip": "CITA_LT_Final_Project\\wwwroot\\app.js",
+              "ViewState": "AgIAAAsBAAAAAAAAAAAgwCEBAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-11-16T05:46:45.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "style.css",
+              "DocumentMoniker": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA_LT_Final_Project\\wwwroot\\style.css",
+              "RelativeDocumentMoniker": "CITA_LT_Final_Project\\wwwroot\\style.css",
+              "ToolTip": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA_LT_Final_Project\\wwwroot\\style.css*",
+              "RelativeToolTip": "CITA_LT_Final_Project\\wwwroot\\style.css*",
+              "ViewState": "AgIAAFMBAAAAAAAAAAAgwGkBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-11-16T06:41:22.625Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "WorkStation.cs",
+              "DocumentMoniker": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA.Shared\\Models\\WorkStation.cs",
+              "RelativeDocumentMoniker": "CITA.Shared\\Models\\WorkStation.cs",
+              "ToolTip": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA.Shared\\Models\\WorkStation.cs",
+              "RelativeToolTip": "CITA.Shared\\Models\\WorkStation.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-16T06:22:47.737Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA_LT_Final_Project\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "CITA_LT_Final_Project\\wwwroot\\index.html",
+              "ToolTip": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA_LT_Final_Project\\wwwroot\\index.html*",
+              "RelativeToolTip": "CITA_LT_Final_Project\\wwwroot\\index.html*",
+              "ViewState": "AgIAAM8AAAAAAAAAAAAgwOUAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2026-11-16T05:46:52.378Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CITA_LT_Final_Project.http",
+              "DocumentMoniker": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA_LT_Final_Project\\CITA_LT_Final_Project.http",
+              "RelativeDocumentMoniker": "CITA_LT_Final_Project\\CITA_LT_Final_Project.http",
+              "ToolTip": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA_LT_Final_Project\\CITA_LT_Final_Project.http",
+              "RelativeToolTip": "CITA_LT_Final_Project\\CITA_LT_Final_Project.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2026-11-16T05:38:29.464Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "INetworkable.cs",
+              "DocumentMoniker": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA.Shared\\Interfaces\\INetworkable.cs",
+              "RelativeDocumentMoniker": "CITA.Shared\\Interfaces\\INetworkable.cs",
+              "ToolTip": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA.Shared\\Interfaces\\INetworkable.cs",
+              "RelativeToolTip": "CITA.Shared\\Interfaces\\INetworkable.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAA3wAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-16T05:38:09.717Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IBorrowable.cs",
+              "DocumentMoniker": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA.Shared\\Interfaces\\IBorrowable.cs",
+              "RelativeDocumentMoniker": "CITA.Shared\\Interfaces\\IBorrowable.cs",
+              "ToolTip": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA.Shared\\Interfaces\\IBorrowable.cs",
+              "RelativeToolTip": "CITA.Shared\\Interfaces\\IBorrowable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-16T05:38:05.608Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CITA_LT_Final_Project",
+              "DocumentMoniker": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj",
+              "RelativeDocumentMoniker": "CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj",
+              "ToolTip": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj",
+              "RelativeToolTip": "CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-11-16T05:37:57.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AssetController.cs",
+              "DocumentMoniker": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA_LT_Final_Project\\Controllers\\AssetController.cs",
+              "RelativeDocumentMoniker": "CITA_LT_Final_Project\\Controllers\\AssetController.cs",
+              "ToolTip": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA_LT_Final_Project\\Controllers\\AssetController.cs",
+              "RelativeToolTip": "CITA_LT_Final_Project\\Controllers\\AssetController.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAwwEMAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-16T05:37:51.178Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AssetService.cs",
+              "DocumentMoniker": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA_LT_Final_Project\\Services\\AssetService.cs",
+              "RelativeDocumentMoniker": "CITA_LT_Final_Project\\Services\\AssetService.cs",
+              "ToolTip": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA_LT_Final_Project\\Services\\AssetService.cs",
+              "RelativeToolTip": "CITA_LT_Final_Project\\Services\\AssetService.cs",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-16T05:37:44.54Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA_LT_Final_Project\\Program.cs",
+              "RelativeDocumentMoniker": "CITA_LT_Final_Project\\Program.cs",
+              "ToolTip": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA_LT_Final_Project\\Program.cs",
+              "RelativeToolTip": "CITA_LT_Final_Project\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-16T05:37:37.977Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "SoftwareLicense.cs",
+              "DocumentMoniker": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA.Shared\\Models\\SoftwareLicense.cs",
+              "RelativeDocumentMoniker": "CITA.Shared\\Models\\SoftwareLicense.cs",
+              "ToolTip": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA.Shared\\Models\\SoftwareLicense.cs",
+              "RelativeToolTip": "CITA.Shared\\Models\\SoftwareLicense.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-16T05:37:32.465Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CampusAsset.cs",
+              "DocumentMoniker": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA.Shared\\Models\\CampusAsset.cs",
+              "RelativeDocumentMoniker": "CITA.Shared\\Models\\CampusAsset.cs",
+              "ToolTip": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA.Shared\\Models\\CampusAsset.cs",
+              "RelativeToolTip": "CITA.Shared\\Models\\CampusAsset.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAowCYAAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-16T05:37:18.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "CITA_LT_Final_Project.csproj",
+              "DocumentMoniker": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj",
+              "RelativeDocumentMoniker": "CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj",
+              "ToolTip": "C:\\Users\\Johdel Lanojan\\OneDrive\\Documents\\github\\Campus_IT_Department_and_Lab_Tracker\\CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj",
+              "RelativeToolTip": "CITA_LT_Final_Project\\CITA_LT_Final_Project.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-11-15T08:24:43.684Z",
+              "EditorCaption": ""
             }
           ]
         },

@@ -31,12 +31,17 @@ namespace CITA.Shared.Models
         {
             if (string.IsNullOrWhiteSpace(assetTag))
                 throw new ArgumentException("Asset Tag cannot be empty.");
-            
+            if (assetTag.Length > 20)
+                throw new ArgumentException("Asset Tag must be 20 characters or fewer.");
+            if (string.IsNullOrWhiteSpace(assetName))
+                throw new ArgumentException("Asset Name cannot be empty.");
+            if (assetName.Length > 100)
+                throw new ArgumentException("Asset Name must be 100 characters or fewer.");
             if (purchasePrice <= 0)
                 throw new ArgumentException("Purchase Price must be greater than zero.");
 
-            AssetTag = assetTag;
-            AssetName = assetName;
+            AssetTag = assetTag.Trim();
+            AssetName = assetName.Trim();
             PurchasePrice = purchasePrice;
             Status = "Available";
         }
@@ -47,5 +52,7 @@ namespace CITA.Shared.Models
         {
             return "Operational";
         }
+
+
     }
 }
