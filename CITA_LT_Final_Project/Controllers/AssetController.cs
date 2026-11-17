@@ -84,6 +84,24 @@ public class AssetController : ControllerBase
         }
     }
 
+    [HttpPut("network/update")]
+    public IActionResult UpdateNetwork([FromBody] JsonElement jsonPayload)
+    {
+        try
+        {
+            string tag = jsonPayload.GetProperty("assetTag").GetString() ?? "";
+            string ip = jsonPayload.GetProperty("ipAddress").GetString() ?? "";
+            string mac = jsonPayload.GetProperty("macAddress").GetString() ?? "";
+
+            _service.UpdateNetworkInfo(tag, ip, mac);
+            return Ok("Network info updated successfully.");
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
+    }
+
     [HttpDelete("delete")]
     public IActionResult Delete([FromQuery] string tag)
     {

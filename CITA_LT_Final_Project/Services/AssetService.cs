@@ -37,10 +37,8 @@ namespace CITA_LT_Final_Project.Services
             asset.PurchasePrice = newPrice;
             asset.Status = newStatus;
 
-            // FIX: If status is set to Available, reset the checkout state
             if (newStatus == "Available" && asset is IBorrowable borrowableAsset)
             {
-                // We use reflection to set the private set properties on the derived classes
                 var isCheckedOutProp = borrowableAsset.GetType().GetProperty("IsCheckedOut");
                 if (isCheckedOutProp != null) isCheckedOutProp.SetValue(borrowableAsset, false);
 
@@ -49,6 +47,23 @@ namespace CITA_LT_Final_Project.Services
             }
 
             SaveToFile();
+        }
+
+        public void UpdateNetworkInfo(string tag, string newIp, string newMac)
+        {
+            var asset = _assets.FirstOrDefault(existingAsset => existingAsset.AssetTag == tag);
+            if (asset == null) throw new Exception("Asset not found");
+
+            if (asset is INetworkable networkableAsset)
+            {
+                networkableAsset.IpAddress = newIp;
+                networkableAsset.MacAddress = newMac;
+                SaveToFile();
+            }
+            else
+            {
+                throw new Exception("Asset is not a networkable device.");
+            }
         }
 
         public void DeleteAsset(string tag)

@@ -293,7 +293,13 @@ th {
     letter-spacing: 0.5px;
 }
 
-tr:hover td { background: rgba(255, 255, 255, 0.02); }
+tr:hover td { background: rgba(255, 255, 255, 0.02); cursor: pointer; }
+
+/* NEW: Highlight for Selected Row */
+tr.row-selected td {
+    background: rgba(56, 189, 248, 0.15) !important;
+    border-bottom: 1px solid var(--accent);
+}
 
 /* --- BADGES --- */
 .badge {
@@ -309,16 +315,6 @@ tr:hover td { background: rgba(255, 255, 255, 0.02); }
 .badge.inrepair { background: rgba(239, 68, 68, 0.1); color: var(--error-red); border: 1px solid rgba(239, 68, 68, 0.2); }
 
 /* --- MESSAGES & EMPTY STATE --- */
-.message {
-    margin-top: 20px;
-    padding: 12px 16px;
-    border-radius: 6px;
-    font-size: 14px;
-}
-
-.message.success { background: rgba(16, 185, 129, 0.1); color: #10b981; border-left: 4px solid #10b981; }
-.message.error { background: rgba(239, 68, 68, 0.1); color: var(--error-red); border-left: 4px solid var(--error-red); }
-
 .empty {
     text-align: center;
     padding: 48px;
@@ -358,9 +354,9 @@ select.input-error {
     color: var(--accent);
 }
 
-/* --- MODAL STYLES (NEW) --- */
+/* --- MODAL STYLES --- */
 .modal-overlay {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;

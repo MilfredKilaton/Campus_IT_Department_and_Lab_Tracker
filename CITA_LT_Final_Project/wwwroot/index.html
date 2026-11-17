@@ -1,388 +1,271 @@
-using System;
-using System.Collections.Generic;
-using CampusAssetTracker.Core.Exceptions;
-using CampusAssetTracker.Core.Interfaces;
-using CampusAssetTracker.Core.Models;
-using CampusAssetTracker.Core.Services;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campus IT Asset Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=37" />
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-brand">
+            <div class="brand-text">
+                <span>DON BOSCO</span>
+                <span class="sub-text">Technical College - Cebu</span>
+            </div>
+        </div>
 
-namespace CampusAssetTracker.Console
-{
-    public class Program
-    {
-        private static readonly AssetService Service = new();
+        <nav class="sidebar-nav">
+            <button class="menu-item active" data-view="add"><span class="icon">+</span> Add Asset</button>
+            <button class="menu-item" data-view="list"><span class="icon">=</span> View All Assets</button>
+            <button class="menu-item" data-view="checkout"><span class="icon">&gt;</span> Check Out</button>
+            <button class="menu-item" data-view="checkin"><span class="icon">&lt;</span> Check In</button>
+            <button class="menu-item" data-view="depreciation"><span class="icon">$</span> Depreciation</button>
+            <button class="menu-item" data-view="network"><span class="icon">#</span> Network Devices</button>
+        </nav>
+    </aside>
 
-        private static readonly string[] MenuOptions =
-        {
-            "List all assets",
-            "Add asset",
-            "Check out item",
-            "Check in item",
-            "Send to repair / Return from repair",
-            "Search assets by name",
-            "Filter by status",
-            "Show checked-out items (LINQ)",
-            "Show maintenance status report",
-            "Total depreciation",
-            "Show assets of a specific type",
-            "Exit"
-        };
+    <!-- MAIN CONTENT -->
+    <div class="main-wrapper">
+        <header class="app-header">
+            <h1>Campus IT Asset Tracker</h1>
+            <p>Manage workstations, peripherals, network hardware, and software licenses.</p>
+            <div class="school-motto">Ardua Non Timeo</div>
+        </header>
 
-        private static void Main()
-        {
-            bool running = true;
+        <main>
+            <section id="panel" class="glass-panel">
+                <div class="panel-header">
+                    <h2 id="panel-title">Add Asset</h2>
+                </div>
 
-            while (running)
-            {
-                int choice = DrawMainMenu();
+                <div id="panel-body">
+                    <div id="view-default" class="empty view-panel" hidden>Choose an action from the menu on the left.</div>
 
-                switch (choice)
-                {
-                    case 0: ListAll(); break;
-                    case 1: AddAsset(); break;
-                    case 2: CheckOut(); break;
-                    case 3: CheckIn(); break;
-                    case 4: RepairMenu(); break;
-                    case 5: Search(); break;
-                    case 6: FilterStatus(); break;
-                    case 7: ShowCheckedOut(); break;
-                    case 8: ShowMaintenanceReport(); break;
-                    case 9: ShowDepreciation(); break;
-                    case 10: FilterByType(); break;
-                    case 11:
-                    case -1:
-                        running = false; break;
-                }
-            }
-        }
+                    <!-- ADD ASSET -->
+                    <section id="view-add" class="view-panel">
+                        <form id="form-add">
+                            <div class="form-group">
+                                <label>Asset Type</label>
+                                <select id="add-type">
+                                    <option value="WorkStation">WorkStation</option>
+                                    <option value="NetworkingHardware">NetworkingHardware</option>
+                                    <option value="Peripheral">Peripheral</option>
+                                    <option value="SoftwareLicense">SoftwareLicense</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Asset Tag</label>
+                                    <input id="add-tag" placeholder="e.g. WS-001" maxlength="20" required />
+                                </div>
+                                <div class="form-group">
+                                    <label>Asset Name</label>
+                                    <input id="add-name" placeholder="e.g. Dell Latitude 3310" maxlength="100" required />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label>Purchase Price ($)</label>
+                                    <input id="add-price" type="number" min="0.01" step="0.01" placeholder="1500.00" required />
+                                </div>
+                            </div>
+                            <div class="form-row" id="row-network">
+                                <div class="form-group">
+                                    <label>IP Address</label>
+                                    <input id="add-ip" placeholder="192.168.1.10" />
+                                </div>
+                                <div class="form-group">
+                                    <label>MAC Address</label>
+                                    <input id="add-mac" placeholder="AA:BB:CC:DD:EE:FF" maxlength="17" />
+                                </div>
+                            </div>
+                            <div class="form-row" id="row-license" style="display: none;">
+                                <div class="form-group">
+                                    <label>Remaining Months</label>
+                                    <input id="add-months" type="number" min="0" placeholder="12" value="12" />
+                                </div>
+                            </div>
 
-        private static int DrawMainMenu()
-        {
-            int selected = 0;
-            int width = 0;
+                            <button type="submit" id="btn-addAsset" class="btn-primary action-btn">Add Asset</button>
+                        </form>
+                    </section>
 
-            foreach (var opt in MenuOptions)
-                width = Math.Max(width, opt.Length);
-            width = Math.Max(width, "===== Campus IT Asset Tracker =====".Length);
-            
-            const int padding = 4; 
-            int inner = width + padding;
+                    <!-- VIEW ALL -->
+                    <section id="view-list" class="view-panel" hidden>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Asset Tag</th>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Price</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="list-body"></tbody>
+                        </table>
+                    </section>
 
-            string top = "┌" + new string('─', inner) + "┐";
-            string mid = "├" + new string('─', inner) + "┤";
-            string bottom = "└" + new string('─', inner) + "┘";
-            string title = "│ " + "===== Campus IT Asset Tracker =====".PadRight(width + 2) + "│";
+                    <!-- CHECK OUT (TABLE SELECTION) -->
+                    <section id="view-checkout" class="view-panel" hidden>
+                        <h3 style="margin-bottom: 16px; color: var(--text-muted);">Select an asset to Check Out</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Asset Tag</th>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                </tr>
+                            </thead>
+                            <tbody id="checkout-table-body"></tbody>
+                        </table>
 
-            while (true)
-            {
-                System.Console.Clear();
-                System.Console.WriteLine(top);
-                System.Console.WriteLine(title);
-                System.Console.WriteLine(mid);
+                        <form id="form-checkout" style="margin-top: 32px;">
+                            <input type="hidden" id="checkout-selected-tag" required />
+                            <div class="form-group">
+                                <label>Borrower ID</label>
+                                <input id="checkout-borrower" placeholder="e.g. STU-2024-05" required />
+                            </div>
+                            <button type="submit" id="btn-checkout" class="btn-primary action-btn">Confirm Check Out</button>
+                        </form>
+                    </section>
 
-                for (int i = 0; i < MenuOptions.Length; i++)
-                {
-                    bool isSelected = i == selected;
-                    string prefix = isSelected ? "► " : "  ";
-                    string label = $"{prefix}{i + 1}. {MenuOptions[i]}";
-                    string line = "│ " + label.PadRight(inner - 1) + "│";
+                    <!-- CHECK IN (TABLE SELECTION) -->
+                    <section id="view-checkin" class="view-panel" hidden>
+                        <h3 style="margin-bottom: 16px; color: var(--text-muted);">Select an asset to Check In</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Asset Tag</th>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                </tr>
+                            </thead>
+                            <tbody id="checkin-table-body"></tbody>
+                        </table>
 
-                    if (isSelected)
-                    {
-                        System.Console.BackgroundColor = ConsoleColor.DarkCyan;
-                        System.Console.ForegroundColor = ConsoleColor.White;
-                        System.Console.WriteLine(line);
-                        System.Console.ResetColor();
-                    }
-                    else
-                    {
-                        System.Console.WriteLine(line);
-                    }
-                }
+                        <form id="form-checkin" style="margin-top: 32px;">
+                            <input type="hidden" id="checkin-selected-tag" required />
+                            <button type="submit" id="btn-checkin" class="btn-primary action-btn">Confirm Check In</button>
+                        </form>
+                    </section>
 
-                System.Console.WriteLine(bottom);
-                System.Console.WriteLine();
-                System.Console.WriteLine("↑/↓: Navigate   Enter: Select   Esc/Q: Exit");
+                    <!-- DEPRECIATION -->
+                    <section id="view-depreciation" class="view-panel" hidden>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Asset Tag</th>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Depreciation</th>
+                                </tr>
+                            </thead>
+                            <tbody id="depreciation-body"></tbody>
+                        </table>
+                        
+                        <div class="total-footer">
+                            <div class="total-label">Total Depreciation:</div>
+                            <div class="total-value" id="depreciation-total">0.00</div>
+                        </div>
+                    </section>
 
-                var key = System.Console.ReadKey(intercept: true).Key;
+                    <!-- NETWORK -->
+                    <section id="view-network" class="view-panel" hidden>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Asset Tag</th>
+                                    <th>Name</th>
+                                    <th>IP Address</th>
+                                    <th>MAC Address</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="network-body"></tbody>
+                        </table>
+                    </section>
+                </div>
+            </section>
+        </main>
+    </div>
 
-                switch (key)
-                {
-                    case ConsoleKey.UpArrow:
-                        selected = (selected - 1 + MenuOptions.Length) % MenuOptions.Length;
-                        break;
-                    case ConsoleKey.DownArrow:
-                        selected = (selected + 1) % MenuOptions.Length;
-                        break;
-                    case ConsoleKey.Enter:
-                        return selected;
-                    case ConsoleKey.Escape:
-                    case ConsoleKey.Q:
-                        return -1;
-                }
-            }
-        }
+    <!-- ROW TEMPLATE FOR ALL ASSETS -->
+    <template id="asset-row-template">
+        <tr>
+            <td class="cell-tag"></td>
+            <td class="cell-name"></td>
+            <td class="cell-type"></td>
+            <td class="cell-price"></td>
+            <td><span class="badge cell-status"></span></td>
+            <td>
+                <button class="btn-edit">Edit</button>
+            </td>
+        </tr>
+    </template>
 
-        private static void ListAll()
-        {
-            System.Console.Clear();
-            var all = Service.GetAll();
-            if (all.Count == 0)
-            {
-                System.Console.WriteLine("No assets found.");
-            }
-            else
-            {
-                foreach (var a in all)
-                    System.Console.WriteLine(a);
-            }
-            Pause();
-        }
+    <!-- EDIT MODAL (General Asset) -->
+    <div id="edit-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Edit Asset</h2>
+            <form id="form-edit">
+                <input type="hidden" id="edit-tag" />
+                <div class="form-group">
+                    <label>Asset Name</label>
+                    <input id="edit-name" required />
+                </div>
+                <div class="form-group">
+                    <label>Purchase Price</label>
+                    <input id="edit-price" type="number" step="0.01" required />
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select id="edit-status">
+                        <option value="Available">Available</option>
+                        <option value="InRepair">InRepair</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" id="btn-delete-modal" class="btn-danger">Delete Asset</button>
+                    <div class="right-actions">
+                        <button type="button" id="btn-cancel-edit" class="btn-secondary">Cancel</button>
+                        <button type="submit" class="btn-primary">Save Changes</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
-        private static void AddAsset()
-        {
-            System.Console.Clear();
-            System.Console.WriteLine("=== Add Asset ===");
-            System.Console.WriteLine("1 = Workstation");
-            System.Console.WriteLine("2 = Networking Hardware");
-            System.Console.WriteLine("3 = Peripheral");
-            System.Console.WriteLine("4 = Software License");
-            System.Console.Write("Type: ");
-            var type = System.Console.ReadLine();
+    <!-- NEW: EDIT MODAL FOR NETWORK DEVICES -->
+    <div id="network-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Edit Network Info</h2>
+            <form id="form-network-edit">
+                <input type="hidden" id="network-edit-tag" />
+                <div class="form-group">
+                    <label>IP Address</label>
+                    <input id="network-edit-ip" placeholder="192.168.1.10" />
+                </div>
+                <div class="form-group">
+                    <label>MAC Address</label>
+                    <input id="network-edit-mac" placeholder="AA:BB:CC:DD:EE:FF" maxlength="17" />
+                </div>
+                <div class="modal-actions">
+                    <div class="right-actions" style="margin-left: auto;">
+                        <button type="button" id="btn-cancel-network" class="btn-secondary">Cancel</button>
+                        <button type="submit" class="btn-primary">Save Network Info</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
-            System.Console.Write("Asset Tag: ");
-            var tag = System.Console.ReadLine() ?? string.Empty;
-            System.Console.Write("Name: ");
-            var name = System.Console.ReadLine() ?? string.Empty;
-            System.Console.Write("Purchase Price: ");
-            var priceInput = System.Console.ReadLine();
-
-            if (!decimal.TryParse(priceInput, out var price) || price < 0)
-            {
-                System.Console.WriteLine("Invalid price.");
-                Pause();
-                return;
-            }
-
-            try
-            {
-                CampusAsset asset = type switch
-                {
-                    "1" => new Workstation(tag, name, price, DateTime.UtcNow, "Generic CPU"),
-                    "2" => new NetworkingHardware(tag, name, price, DateTime.UtcNow),
-                    "3" => new Peripheral(tag, name, price, DateTime.UtcNow),
-                    "4" => new SoftwareLicense(tag, name, price, DateTime.UtcNow, 12, DateTime.UtcNow.AddMonths(12)),
-                    _ => throw new AssetException("Unknown asset type.")
-                };
-                Service.Add(asset);
-                System.Console.WriteLine("Asset added successfully.");
-            }
-            catch (AssetException ex)
-            {
-                System.Console.WriteLine($"Error: {ex.Message}");
-            }
-            Pause();
-        }
-
-        private static void CheckOut()
-        {
-            System.Console.Clear();
-            System.Console.WriteLine("=== Check Out ===");
-            System.Console.Write("Asset Tag: ");
-            var tag = System.Console.ReadLine() ?? string.Empty;
-            System.Console.Write("Borrower ID: ");
-            var borrower = System.Console.ReadLine() ?? string.Empty;
-
-            try
-            {
-                Service.CheckOut(tag, borrower);
-                System.Console.WriteLine($"Asset checked out to {borrower}.");
-            }
-            catch (AssetException ex)
-            {
-                System.Console.WriteLine($"Error: {ex.Message}");
-            }
-            Pause();
-        }
-
-        private static void CheckIn()
-        {
-            System.Console.Clear();
-            System.Console.WriteLine("=== Check In ===");
-            System.Console.Write("Asset Tag: ");
-            var tag = System.Console.ReadLine() ?? string.Empty;
-
-            try
-            {
-                Service.CheckIn(tag);
-                System.Console.WriteLine($"Asset checked in.");
-            }
-            catch (AssetException ex)
-            {
-                System.Console.WriteLine($"Error: {ex.Message}");
-            }
-            Pause();
-        }
-
-        private static void RepairMenu()
-        {
-            System.Console.Clear();
-            System.Console.WriteLine("=== Repair Menu ===");
-            System.Console.Write("Asset Tag: ");
-            var tag = System.Console.ReadLine() ?? string.Empty;
-            System.Console.Write("(1) Send to repair  (2) Return from repair: ");
-            var action = System.Console.ReadLine();
-
-            try
-            {
-                if (action == "1")
-                {
-                    Service.SendToRepair(tag);
-                    System.Console.WriteLine($"Asset sent to repair.");
-                }
-                else if (action == "2")
-                {
-                    Service.ReturnFromRepair(tag);
-                    System.Console.WriteLine($"Asset returned from repair.");
-                }
-                else
-                {
-                    System.Console.WriteLine("Invalid action.");
-                }
-            }
-            catch (AssetException ex)
-            {
-                System.Console.WriteLine($"Error: {ex.Message}");
-            }
-            Pause();
-        }
-
-        private static void Search()
-        {
-            System.Console.Clear();
-            System.Console.WriteLine("=== Search by Name ===");
-            System.Console.Write("Keyword: ");
-            var keyword = System.Console.ReadLine() ?? string.Empty;
-
-            var results = Service.SearchByName(keyword);
-            if (results.Count == 0)
-            {
-                System.Console.WriteLine("No matching assets.");
-            }
-            else
-            {
-                foreach (var a in results)
-                    System.Console.WriteLine(a);
-            }
-            Pause();
-        }
-
-        private static void FilterStatus()
-        {
-            System.Console.Clear();
-            System.Console.WriteLine("=== Filter by Status ===");
-            System.Console.WriteLine("Options: Available, InUse, InRepair, Retired");
-            System.Console.Write("Status: ");
-            var input = System.Console.ReadLine() ?? string.Empty;
-
-            if (!Enum.TryParse<AssetStatus>(input, true, out var status))
-            {
-                System.Console.WriteLine("Invalid status.");
-                Pause();
-                return;
-            }
-
-            var results = Service.FilterByStatus(status);
-            if (results.Count == 0)
-            {
-                System.Console.WriteLine("No assets with that status.");
-            }
-            else
-            {
-                foreach (var a in results)
-                    System.Console.WriteLine(a);
-            }
-            Pause();
-        }
-
-        private static void FilterByType()
-        {
-            System.Console.Clear();
-            System.Console.WriteLine("=== Filter by Type ===");
-            System.Console.WriteLine("1 = Workstation");
-            System.Console.WriteLine("2 = Networking Hardware");
-            System.Console.WriteLine("3 = Peripheral");
-            System.Console.WriteLine("4 = Software License");
-            System.Console.Write("Choice: ");
-            var choice = System.Console.ReadLine();
-
-            List<CampusAsset> results = choice switch
-            {
-                "1" => Service.FilterByType<Workstation>(),
-                "2" => Service.FilterByType<NetworkingHardware>(),
-                "3" => Service.FilterByType<Peripheral>(),
-                "4" => Service.FilterByType<SoftwareLicense>(),
-                _ => new List<CampusAsset>()
-            };
-
-            if (results.Count == 0)
-            {
-                System.Console.WriteLine("No assets found for that type.");
-            }
-            else
-            {
-                foreach (var a in results)
-                    System.Console.WriteLine(a);
-            }
-            Pause();
-        }
-
-        private static void ShowCheckedOut()
-        {
-            System.Console.Clear();
-            System.Console.WriteLine("=== Checked-Out Items (LINQ + Interface Casting) ===");
-            var checkedOut = Service.GetCheckedOutBorrowables();
-
-            if (checkedOut.Count == 0)
-            {
-                System.Console.WriteLine("Nothing is currently checked out.");
-            }
-            else
-            {
-                foreach (var item in checkedOut)
-                {
-                    if (item is CampusAsset asset)
-                        System.Console.WriteLine($"[{asset.AssetTag}] {asset.Name} - Borrower: {item.BorrowerId}");
-                    else
-                        System.Console.WriteLine($"Borrower: {item.BorrowerId}");
-                }
-            }
-            Pause();
-        }
-
-        private static void ShowMaintenanceReport()
-        {
-            System.Console.Clear();
-            System.Console.WriteLine("=== Maintenance Status Report (Polymorphism) ===");
-
-            foreach (var a in Service.GetAll())
-                System.Console.WriteLine($"{a.AssetTag,-10} {a.Name,-30} -> {a.GetMaintenanceStatus()}");
-
-            Pause();
-        }
-
-        private static void ShowDepreciation()
-        {
-            System.Console.Clear();
-            System.Console.WriteLine("=== Total Depreciation (Polymorphism) ===");
-            System.Console.WriteLine($"Total current value of all assets: {Service.GetTotalDepreciation():C}");
-            Pause();
-        }
-
-        private static void Pause()
-        {
-            System.Console.WriteLine();
-            System.Console.WriteLine("Press any key to return to the menu...");
-            System.Console.ReadKey(intercept: true);
-        }
-    }
-}
+    <script src="app.js?v=37"></script>
+</body>
+</html>

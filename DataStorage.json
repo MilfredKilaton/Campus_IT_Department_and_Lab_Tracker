@@ -3,11 +3,22 @@
     "type": "WorkStation",
     "IsCheckedOut": false,
     "BorrowerId": null,
-    "IpAddress": "192.168.1.0",
+    "IpAddress": "192.168.1.1",
     "MacAddress": "AA:BB:CC:DD:EE:FF",
     "assetTag": "WS-001",
     "assetName": "Dell Latitude 3310",
-    "purchasePrice": 15000,
+    "purchasePrice": 1500,
+    "status": "Available"
+  },
+  {
+    "type": "WorkStation",
+    "IsCheckedOut": false,
+    "BorrowerId": null,
+    "IpAddress": "",
+    "MacAddress": "",
+    "assetTag": "WS-002",
+    "assetName": "Dell Latitude 3310",
+    "purchasePrice": 1500,
     "status": "Available"
   }
 ]
