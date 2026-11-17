@@ -5,6 +5,9 @@ const actionButtons = document.querySelectorAll(".action-btn");
 const typeDropdown = document.getElementById("add-type");
 const rowNetwork = document.getElementById("row-network");
 const rowLicense = document.getElementById("row-license");
+const editModal = document.getElementById("edit-modal");
+
+let currentEditingTag = null;
 
 function switchView(title, targetViewId) {
     panelTitle.textContent = title;
@@ -12,7 +15,6 @@ function switchView(title, targetViewId) {
     document.getElementById(targetViewId).hidden = false;
 }
 
-// Helper to show message and turn input box red
 function showError(elementId, message, inputElement = null) {
     const el = document.getElementById(elementId);
     if (el) {
@@ -32,12 +34,9 @@ function clearErrors() {
     document.querySelectorAll(".message").forEach(msg => msg.hidden = true);
 }
 
-// Sidebar Navigation (Adds the active state)
 document.querySelectorAll('.menu-item').forEach(btn => {
     btn.addEventListener("click", (e) => {
-        // Remove active class from all menu items
         document.querySelectorAll('.menu-item').forEach(b => b.classList.remove('active'));
-        // Add active class to clicked one
         e.currentTarget.classList.add('active');
 
         const view = e.currentTarget.getAttribute('data-view');
@@ -68,7 +67,6 @@ typeDropdown.addEventListener("change", () => {
     }
 });
 
-// Clear red borders on input
 document.getElementById("form-add").addEventListener("input", clearErrors);
 document.getElementById("form-edit").addEventListener("input", clearErrors);
 
@@ -89,7 +87,6 @@ actionButtons.forEach(button => {
         const price = parseFloat(priceEl.value);
 
         if (!tag) return showError("add-result", "Asset Tag is required.", tagEl);
-        if (tag.length > 20) return showError("add-result", "Asset Tag must be 20 characters or fewer.", tagEl);
         if (!name) return showError("add-result", "Asset Name is required.", nameEl);
         if (isNaN(price) || price <= 0) return showError("add-result", "Purchase Price must be greater than zero.", priceEl);
 
@@ -100,23 +97,14 @@ actionButtons.forEach(button => {
             const macEl = document.getElementById("add-mac");
             const ip = ipEl.value.trim();
             const mac = macEl.value.trim();
-
-            if (ip && !/^(\d{1,3}\.){3}\d{1,3}$/.test(ip))
-                return showError("add-result", "Invalid IP address.", ipEl);
-            if (ip) {
-                const octets = ip.split(".").map(Number);
-                if (octets.some(o => o > 255))
-                    return showError("add-result", "IP octets must be 0-255.", ipEl);
-            }
-            if (mac && !/^([0-9A-Fa-f]{2}[:-]){5}[0-9A-Fa-f]{2}$/.test(mac))
-                return showError("add-result", "Invalid MAC address.", macEl);
-
+            if (ip && !/^(\d{1,3}\.){3}\d{1,3}$/.test(ip)) return showError("add-result", "Invalid IP.", ipEl);
+            if (mac && !/^([0-9A-Fa-f]{2}[:-]){5}[0-9A-Fa-f]{2}$/.test(mac)) return showError("add-result", "Invalid MAC.", macEl);
             payload.ipAddress = ip;
             payload.macAddress = mac;
         } else if (selectedType === "SoftwareLicense") {
             const monthsEl = document.getElementById("add-months");
             const months = parseInt(monthsEl.value);
-            if (isNaN(months) || months < 0) return showError("add-result", "Months must be 0 or more.", monthsEl);
+            if (isNaN(months) || months < 0) return showError("add-result", "Months must be 0+.", monthsEl);
             payload.remainingMonths = months;
         }
 
@@ -138,9 +126,8 @@ actionButtons.forEach(button => {
     });
 });
 
-// --- EDIT MODAL VALIDATION ---
+// --- EDIT MODAL ---
 const formEdit = document.getElementById("form-edit");
-const editModal = document.getElementById("edit-modal");
 
 document.getElementById("btn-cancel-edit").addEventListener("click", () => {
     editModal.style.display = "none";
@@ -177,13 +164,20 @@ formEdit.addEventListener("submit", async (event) => {
     }
 });
 
+document.getElementById("btn-delete-modal").addEventListener("click", () => {
+    if (currentEditingTag) {
+        deleteAsset(currentEditingTag);
+    }
+});
+
 function openEditModal(asset) {
     clearErrors();
+    currentEditingTag = asset.assetTag;
     document.getElementById("edit-tag").value = asset.assetTag;
     document.getElementById("edit-name").value = asset.assetName;
     document.getElementById("edit-price").value = asset.purchasePrice;
     document.getElementById("edit-status").value = asset.status;
-    editModal.style.display = "flex";
+    editModal.style.display = "flex"; // Changed from .style.display = "block"
 }
 
 // --- FETCH FUNCTIONS ---
@@ -206,22 +200,57 @@ async function loadAssets() {
             const statusBadge = row.querySelector(".cell-status");
             statusBadge.textContent = asset.status;
             statusBadge.classList.add(asset.status.toLowerCase());
-            row.querySelector(".btn-edit").addEventListener("click", () => openEditModal(asset));
-            row.querySelector(".btn-delete").addEventListener("click", () => deleteAsset(asset.assetTag));
+            
+            row.querySelector(".btn-edit").addEventListener("click", (e) => {
+                e.stopPropagation();
+                openEditModal(asset);
+            });
+
+            const tr = row.querySelector("tr");
+            tr.addEventListener("dblclick", () => {
+                openEditModal(asset);
+            });
+
             tbody.appendChild(row);
         });
     } catch (error) { tbody.innerHTML = `<tr><td colspan='6' class='empty'>Error: ${error.message}</td></tr>`; }
 }
 
 async function loadDepreciation() {
-    const element = document.getElementById("depreciation-value");
-    element.textContent = "Loading...";
+    const tbody = document.getElementById("depreciation-body");
+    const totalEl = document.getElementById("depreciation-total");
+    tbody.innerHTML = "<tr><td colspan='4' class='empty'>Loading...</td></tr>";
+    totalEl.textContent = "0.00";
+
     try {
-        const [depResp, assetsResp] = await Promise.all([fetch(`${API}/depreciation`), fetch(API)]);
-        const value = await depResp.json();
-        const assets = await assetsResp.json();
-        element.textContent = (!assets || assets.length === 0) ? "" : value.toFixed(2);
-    } catch (error) { element.textContent = "Error"; }
+        const response = await fetch(API);
+        const assets = await response.json();
+        if (assets.length === 0) { tbody.innerHTML = "<tr><td colspan='4' class='empty'>No assets to calculate.</td></tr>"; return; }
+
+        let total = 0;
+        tbody.innerHTML = "";
+
+        assets.forEach(asset => {
+            let depValue = 0;
+            if (asset.type === "WorkStation") depValue = asset.purchasePrice / 5;
+            else if (asset.type === "NetworkingHardware") depValue = asset.purchasePrice / 7;
+            else if (asset.type === "Peripheral") depValue = asset.purchasePrice / 3;
+            else if (asset.type === "SoftwareLicense") depValue = asset.purchasePrice * ((asset.remainingMonths || 0) / 12);
+
+            total += depValue;
+
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${asset.assetTag}</td>
+                <td>${asset.assetName}</td>
+                <td>${asset.type}</td>
+                <td>${depValue.toFixed(2)}</td>
+            `;
+            tbody.appendChild(row);
+        });
+
+        totalEl.textContent = total.toFixed(2);
+    } catch (error) { tbody.innerHTML = `<tr><td colspan='4' class='empty'>Error: ${error.message}</td></tr>`; }
 }
 
 async function loadNetwork() {
@@ -261,11 +290,12 @@ async function deleteAsset(tag) {
     try {
         const res = await fetch(`${API}/delete?tag=${encodeURIComponent(tag)}`, { method: "DELETE" });
         if (!res.ok) throw new Error(await res.text());
-        alert("Asset deleted!"); loadAssets();
+        alert("Asset deleted!");
+        editModal.style.display = "none";
+        loadAssets();
     } catch (error) { alert("Error: " + error.message); }
 }
 
-// Checkout and Checkin Actions
 document.getElementById("btn-checkout").addEventListener("click", async (e) => {
     e.preventDefault();
     const tag = document.getElementById("checkout-tag").value;
