@@ -32,3 +32,7 @@ DAY 9 [Nov 11]..: Finishing touch for the GUI.
   - Added scrollable feature for left menu side bar.
   - Added panels for each desginated buttons.
   - Interactable buttons.
+
+DAY 10 [Nov 16 - 18]: Adding an assign IP or Mac Address option
+  - Added edit button or clickable asset row for assigning an IP or MAC address.
+  - Nullable IP and MAC Address in Add Asset.
