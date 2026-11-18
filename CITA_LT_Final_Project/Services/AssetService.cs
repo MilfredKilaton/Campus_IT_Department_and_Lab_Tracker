@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using CITA.Shared.Models;
 using CITA.Shared.Interfaces;
-using System.IO;
-using System.Text.Json;
 
 namespace CITA_LT_Final_Project.Services
 {
     public class AssetService
     {
-        private readonly List<CampusAsset> _assets = new();
-        private readonly string filePath = "/home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/DataStorage.json";
+        private readonly List<CampusAsset> _assets;
+        private readonly IAssetRepository _repository;
 
-        public AssetService()
+        public AssetService(IAssetRepository repository)
         {
-            LoadFromFile();
+            _repository = repository;
+            _assets = _repository.Load();
         }
 
         public void AddAsset(CampusAsset asset) 
@@ -25,7 +24,7 @@ namespace CITA_LT_Final_Project.Services
                 throw new InvalidOperationException($"An asset with the tag '{asset.AssetTag}' already exists.");
             }
             _assets.Add(asset);
-            SaveToFile();
+            _repository.Save(_assets);
         }
 
         public void UpdateAsset(string tag, string newName, decimal newPrice, string newStatus)
@@ -46,7 +45,7 @@ namespace CITA_LT_Final_Project.Services
                 if (borrowerIdProp != null) borrowerIdProp.SetValue(borrowableAsset, null);
             }
 
-            SaveToFile();
+            _repository.Save(_assets);
         }
 
         public void UpdateNetworkInfo(string tag, string newIp, string newMac)
@@ -58,7 +57,7 @@ namespace CITA_LT_Final_Project.Services
             {
                 networkableAsset.IpAddress = newIp;
                 networkableAsset.MacAddress = newMac;
-                SaveToFile();
+                _repository.Save(_assets);
             }
             else
             {
@@ -72,43 +71,7 @@ namespace CITA_LT_Final_Project.Services
             if (asset != null)
             {
                 _assets.Remove(asset);
-                SaveToFile();
-            }
-        }
-
-        public void SaveToFile()
-        {
-            try
-            {
-                var options = new JsonSerializerOptions { WriteIndented = true };
-                string json = JsonSerializer.Serialize(_assets, options);
-                File.WriteAllText(filePath, json);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error saving file: {ex.Message}");
-            }
-        }
-
-        private void LoadFromFile()
-        {
-            try
-            {
-                if (File.Exists(filePath))
-                {
-                    string json = File.ReadAllText(filePath);
-                    var loadedAssets = JsonSerializer.Deserialize<List<CampusAsset>>(json);
-                    
-                    if (loadedAssets != null)
-                    {
-                        _assets.Clear();
-                        _assets.AddRange(loadedAssets);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error loading file: {ex.Message}");
+                _repository.Save(_assets);
             }
         }
 

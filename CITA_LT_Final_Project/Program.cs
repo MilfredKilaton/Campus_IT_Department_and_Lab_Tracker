@@ -6,6 +6,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+builder.Services.AddSingleton<IAssetRepository>(provider => 
+    new JsonAssetRepository("/home/milfred/Documents/Github/Campus_IT_Department_and_Lab_Tracker/DataStorage.json"));
+
 builder.Services.AddSingleton<AssetService>();
 
 var app = builder.Build();
